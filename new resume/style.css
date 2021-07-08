@@ -1,0 +1,206 @@
+/* основные стили страницы */
+@font-face{
+    font-family: 'Acer';
+    src: url('src/fonts/Acer.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Arimo';
+    src: url('src/fonts/Arimo.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+    
+html, body {
+    height: 100%;
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none;
+}
+
+/* специфичные стили заголовка страницы (левая часть страницы) */
+.section__left {
+    width: 5%;
+    padding: 15px;
+}
+
+.section__left {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+}
+
+.section__left h1 {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    user-select: none;
+
+    font-family: 'Arimo';
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 2px;
+
+    opacity: 0.9;
+}
+
+.section__left h1 span {
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+/* специфичные стили основной часть страницы (центр) */
+.main {
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+}
+
+.main div:not(:last-child) {
+    margin: 0;
+    padding: 5%;
+    width: 80%;
+    height: auto;
+    position: absolute;
+    top: 40px;
+    left: 5%;
+    background-color: rgba(53, 51, 202, 0.24);
+    border: 1px solid grey;
+    border-radius: 3px;
+    box-shadow: 7px 2px 7px rgba(128, 128, 128, 0.329);
+}
+
+.main .close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+    padding: 20px;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.svg__container {
+    width: 80%;
+    height: 100%;
+    min-width: 610px;
+    margin: 0 auto;
+    padding: 0;
+    user-select: none;
+}
+
+g,
+.main div:not(:last-child) {
+    cursor: url('src/cursor/CatPaw_Normal.cur'), auto;
+}
+
+.tape__orange,
+.tape__purple,
+.tape__blue,
+.close,
+.menu button {
+    cursor: url('src/cursor/CatPaw_white.cur'), auto;
+}
+
+.tape__orange:hover path {
+    fill: #c71717;
+}
+
+.tape__purple:hover path{
+    fill: #3ebd18;
+}
+
+.tape__blue:hover path{
+    fill: #1e4eb6;
+}
+
+/* специфичные стили меню и инфо (правая часть страницы) */
+.section__right{
+    width: 15%;
+    min-width: 135px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section__right .info,
+.section__right .info button {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.section__right .info button {
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #543543;
+    border-radius: 20%;
+    padding: 5px;
+    cursor: url('src/cursor/CatPaw_help.cur'), auto;
+}
+
+.section__right .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.section__right .menu button {
+    width: auto;
+    height: 50px;
+
+    background-color: white;
+    border: none;
+    
+    font-family: 'Arimo';
+    font-size: 20px;
+    white-space: nowrap;
+    
+    opacity: 0.6;
+}
+
+.section__right .menu button:hover {
+    opacity: 1;
+}
