@@ -1,4 +1,5 @@
 /* основные стили страницы */
+
 @font-face{
     font-family: 'Acer';
     src: url('src/fonts/Acer.ttf');
@@ -30,7 +31,8 @@ html, body {
     display: none;
 }
 
-/* специфичные стили заголовка страницы (левая часть страницы) */
+/* _____ Специфичные стили заголовка страницы (левая часть страницы) _____ */
+
 .section__left {
     width: 5%;
     padding: 15px;
@@ -55,8 +57,7 @@ html, body {
     font-weight: 600;
     font-style: italic;
     letter-spacing: 2px;
-
-    opacity: 0.9;
+    color: rgb(65, 65, 65);
 }
 
 .section__left h1 span {
@@ -64,7 +65,8 @@ html, body {
     padding-top: 20px;
 }
 
-/* специфичные стили основной часть страницы (центр) */
+/* _____ Специфичные стили основной часть страницы (центр) _____ */
+
 .main {
     width: 80%;
     height: 100%;
@@ -75,19 +77,16 @@ html, body {
     position: relative;
 }
 
-.main div:not(:last-child) {
-    margin: 0;
-    padding: 5%;
+.svg__container {
     width: 80%;
-    height: auto;
-    position: absolute;
-    top: 40px;
-    left: 5%;
-    background-color: rgba(53, 51, 202, 0.24);
-    border: 1px solid grey;
-    border-radius: 3px;
-    box-shadow: 7px 2px 7px rgba(128, 128, 128, 0.329);
+    height: 100%;
+    min-width: 610px;
+    margin: 0 auto;
+    padding: 0;
+    user-select: none;
 }
+
+/* Крестик на модальных окнах */
 
 .main .close {
     position: absolute;
@@ -121,14 +120,261 @@ html, body {
     transform: rotate(-45deg);
 }
 
-.svg__container {
+/* Структура и общие стили модальных окон */
+
+.main > div:not(:last-child) {
+    margin: 0;
+    margin-left: -40%;
+    padding: 10px;
     width: 80%;
-    height: 100%;
-    min-width: 610px;
+    min-height: 40%;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid grey;
+    border-radius: 3px;
+    /* box-shadow: 3px 6px 1px rgba(0, 0, 0, 0.6); */
+}
+
+.main__dev_experience,
+.main__basic_info,
+.main__dev_plans {
     margin: 0 auto;
     padding: 0;
-    user-select: none;
+    max-height: 80%;
 }
+
+.main h2,
+.main h3 {
+    text-align: center;
+    margin: 15px 0 10px;
+}
+
+.main p {
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+/* Стили раздела "Обо мне" */
+
+.main__basic_info,
+.main__dev_experience {
+    overflow: scroll;
+    overflow-x: hidden; 
+}
+
+.main__basic_info::-webkit-scrollbar,
+.main__dev_experience::-webkit-scrollbar {
+    width: 8px;
+    background-color: #f9f9fd;
+  }
+  
+.main__basic_info::-webkit-scrollbar-thumb,
+.main__dev_experience::-webkit-scrollbar-thumb {
+    background-color: #29292e;
+}
+  
+.main__basic_info::-webkit-scrollbar-track,
+.main__dev_experience::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+    background-color: #f9f9fd;
+}
+
+.main__basic_info .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    margin-top: 35px;
+}
+
+.main__basic_info .header div:first-child {
+    width: 180px;
+}
+
+.main__basic_info .header div:last-child {
+    width: calc(100% - 300px);
+}
+
+.main__basic_info h2 {
+    margin-top: 0;
+}
+
+.main__basic_info .soft_skills {
+    background: radial-gradient(at left top, #ffffff, #fbff00);
+    box-shadow: 1px 1px 1px grey;
+    padding: 10px;
+}
+
+.main__basic_info dt {
+    font-weight: bold;
+}
+
+/* Стили раздела "Планы" */
+.main__dev_plans > div:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__dev_plans > div:nth-of-type(2) div {
+    padding: 0 15px 10px;
+    width: 50%;
+}
+
+/* "Планы.Контакты" */
+
+.contacts {
+    padding: 0px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.contacts ul {
+    list-style: none;
+    margin: 0;
+    margin-left: 20px;
+    padding: 20px 0;
+    position: relative;
+
+    font-size: 15px;
+}
+
+.contacts ul li:last-child {
+    margin-top: 10px;
+}
+
+.contacts ul li:first-child a::before {
+    position: absolute;
+    content: " ";
+    top: 20px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background-image: url('src/icons/telephone.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.contacts ul li:last-child a::before {
+    position: absolute;
+    content: " ";
+    bottom: 20px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background-image: url('src/icons/mail.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.contacts a {
+    padding: 5px 25px;
+    text-decoration: none;
+    color: #000;
+    cursor: url('src/cursor/CatPaw_alternative.cur'), auto;
+}
+
+.contacts h4 {
+    margin: auto 0;
+    padding: 0;
+    /* padding-top: 20px; */
+    text-align: end;
+}
+
+/* Стили раздела "Опыт" */
+
+.main__dev_experience {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.main__dev_experience .skills {
+    margin: 20px 10px 0;
+}
+
+.main__dev_experience .skills h3,
+.main__dev_experience .skills p {
+    width: 200px;
+}
+
+.skills h3 {
+    margin-bottom: 10px;
+}
+
+.skills h3:nth-of-type(2) {
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+.skills p:last-child {
+    margin: 0;
+    margin-top: 10px;
+    padding-bottom: 30px;
+}
+
+.skills dl {
+    margin: 0;
+}
+
+.skills dt {
+    text-align: center;
+    padding: 5px;
+    font-size: small;
+}
+
+.skills dd {
+    margin: auto;
+    padding: 0;
+    margin-bottom: 5px;
+    width: 90%;
+    height: 12px;
+    text-align: center;
+    font-size: 0;
+    border: 1px solid #395c3d;
+    background-color: white;
+    box-shadow: 2px 2px 4px 0 grey;
+}
+
+.skills div {
+    height: 100%;
+    animation: color 2s linear 0s infinite alternate;
+}
+
+
+@keyframes color {
+    0%{
+        background-color: #ffffff;
+    }
+    50% {
+        background-color: #82a5bb;
+    }
+    100%{
+        background-color: #2c6896;
+    }
+}
+
+.skills p {
+    text-align: center;
+}
+
+.experience {
+    padding: 15px;
+}
+
+.experience dt {
+    font-weight: bold;
+}
+
+.experience dd {
+    padding-bottom: 8px;
+}
+
+/* Курсоры центральной части страницы */
 
 g,
 .main div:not(:last-child) {
@@ -155,7 +401,8 @@ g,
     fill: #1e4eb6;
 }
 
-/* специфичные стили меню и инфо (правая часть страницы) */
+/* _____ Специфичные стили меню и инфо (правая часть страницы) _____ */
+
 .section__right{
     width: 15%;
     min-width: 135px;
@@ -163,23 +410,6 @@ g,
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.section__right .info,
-.section__right .info button {
-    margin: 0 auto;
-    padding: 0;
-}
-
-.section__right .info button {
-    font-size: 30px;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    border: 1px solid #543543;
-    border-radius: 20%;
-    padding: 5px;
-    cursor: url('src/cursor/CatPaw_help.cur'), auto;
 }
 
 .section__right .menu {
@@ -203,4 +433,37 @@ g,
 
 .section__right .menu button:hover {
     opacity: 1;
+    font-weight: 600;
+    color: #29292e;
+}
+
+.section__right .info,
+.section__right .info button {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.section__right .info button {
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #29292e;
+    border-radius: 20%;
+    padding: 5px;
+    cursor: url('src/cursor/CatPaw_help.cur'), auto;
+    position: relative;
+}
+
+.section__right .info button::before {
+    position: absolute;
+    bottom: 40px;
+    left: -230px;
+    content: 'INFORMATION';
+    padding: 8px;
+
+    border: 2px solid #543543;
+    background-color:rgba(62, 180, 131, 0.8);
+    border-radius: 3px;
+    box-shadow: 5px 2px 7px rgba(128, 128, 128, 0.329);
 }
